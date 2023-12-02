@@ -1,3 +1,5 @@
-export default function Page() {
-  return <h1>Hello, Dashboard Page!</h1>;
+import React from "react";
+
+export default function page() {
+  return <div></div>;
 }

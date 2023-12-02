@@ -1,16 +1,15 @@
-export default function DashboardLayout({
-  children, // will be a page or nested layout
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <section>
-      {/* Include shared UI here e.g. a header or sidebar */}
-      <nav>
-        <p>sample pages</p>
-      </nav>
+"use client";
 
+import React, { useEffect } from "react";
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    console.log("Layoutレンダリング");
+  }, []);
+  return (
+    <div>
+      <h2>Layout Header</h2>
       {children}
-    </section>
+    </div>
   );
 }

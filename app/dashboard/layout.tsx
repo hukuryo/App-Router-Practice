@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { Links } from "../component/links";
+import { Links } from "../components/links";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {

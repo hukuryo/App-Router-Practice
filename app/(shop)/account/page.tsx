@@ -1,25 +1,16 @@
-export default function page() {
-  async function onAction(formData: FormData) {
-    "use server";
+import PostList from "@/app/components/postList";
+import Loading from "./loading";
+import { Suspense } from "react";
 
-    const name = formData.get("name");
-    const email = formData.get("email");
-    console.log("name : " + name);
-    console.log("email : " + email);
-  }
+const BlogPage = async () => {
   return (
-    <main>
-      {/*Server Actions*/}
-      <form action={onAction}>
-        <label htmlFor="name">name: </label>
-        <input id="name" name="name" />
-        <br />
-        <label htmlFor="email">email: </label>
-        <input id="email" name="email" />
-        <br />
-        <button type="submit">Server Action</button>
-        <br />
-      </form>
-    </main>
+    <div className="container mx-auto py-[50px]">
+      <h2 className="text-[50px] font-bold mb-5">Blog</h2>
+      <Suspense fallback={<Loading />}>
+        <PostList waitTime={3000} />
+      </Suspense>
+    </div>
   );
-}
+};
+
+export default BlogPage;

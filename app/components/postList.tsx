@@ -1,4 +1,6 @@
-interface Tpost {
+import { notFound } from "next/navigation";
+
+interface PostProps {
   id: string;
   title: string;
   content: string;
@@ -19,10 +21,13 @@ const getPostData = async (waitTime: number) => {
 
 const PostList = async ({ waitTime }: { waitTime: number }) => {
   const postData = await getPostData(waitTime);
+  if (!postData) {
+    notFound();
+  }
 
   return (
     <div className="grid grid-cols-12 gap-3 mb-3">
-      {postData.map((post: Tpost) => (
+      {postData.map((post: PostProps) => (
         <div
           className="col-span-4 border border-black rounded p-5"
           key={post.id}
